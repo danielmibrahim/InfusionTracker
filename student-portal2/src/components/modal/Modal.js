@@ -19,13 +19,21 @@ class Modal extends Component {
             () => this.setState({timer: countdown(new Date(), expireDate, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS).toString()}),
             1000
         )
-
-       
-            if (expireDate < initialDate){
-                this.props.selectedArea.prefillColor = "red"
-            }
-        
     }
+
+    handleChangeColor = (newColor) => {
+        this.props.selectedArea.fillColor({
+          fillColor: newColor
+        })
+      }
+
+      componentDidMount() {
+        
+        this.timer = setTimeout(
+          () => this.handleChangeColor("red"),
+          1000*3 // in milliseconds, 3s for fast show
+        )
+      }
 
     cancel = (event) => {
         this.props.removeLastAddedArea()
@@ -61,7 +69,7 @@ class Modal extends Component {
                     </div>
 
                     <div className="modal-body">
-                        <p>This site expires on:</p>
+                        <p>This site will expire in:</p>
                     {   
                         this.state.timer
                     }

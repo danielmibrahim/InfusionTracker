@@ -4,8 +4,9 @@ class Settings extends Component {
     render() {
         return (
 
-            
-            
+            <div className="site-wrapper ">
+                        
+
                 <form className="container">
                     <h1>Edit Information</h1>
                    
@@ -31,7 +32,10 @@ class Settings extends Component {
                     </div>
                  
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
                 </form>
+                </div>
                 
         );
     }

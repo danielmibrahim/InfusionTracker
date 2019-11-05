@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, withRouter } from "react-router-dom";
+import '/Users/Danny/Documents/Capstone/student-portal2/src/cover.css'
+
 
 class SignUp extends Component {
     state = {
@@ -38,7 +40,9 @@ class SignUp extends Component {
     }
     render() {
         return (
+            <div className="site-wrapper">
             <form onSubmit={this.signUpSubmitHandler} className="container-center" >
+               <br></br>
                 <h1>Welcome to Infusion Tracker!</h1>
                 <h2>Sign Up</h2>
                 <h5 className="padding-bottom-15px">It's quick and easy</h5>
@@ -105,8 +109,11 @@ class SignUp extends Component {
                 </label> */}
                     {/* </div> */}
                 {/* </div> */}
+                
                 <button type="submit" className="btn btn-primary">Sign Up</button>
             </form>
+            
+            </div>
         );
     }
 }

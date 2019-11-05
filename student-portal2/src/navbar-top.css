@@ -1,0 +1,9 @@
+/* Show it's not fixed to the top */
+/* body {
+  min-height: 75rem;
+} */
+/* navbar */
+.navbar {
+  background-color: rgb(12, 9, 63);
+  border-color: rgb(11, 6, 71);
+}

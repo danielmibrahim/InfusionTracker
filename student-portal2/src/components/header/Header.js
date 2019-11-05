@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
-
+import  '/Users/Danny/Documents/Capstone/student-portal2/src/navbar-top.css'
 
 class Header extends Component {
     state = {
@@ -44,8 +44,8 @@ signOut = () => {
 
     render() {
         let dropDownList = (
-            <li className="nav-item ">
-                <Link className="nav-link" to="/sign-up">Sign Up  </Link>
+            <li className="nav-item mr-auto">
+                <Link className="nav-link active" to="/sign-up">Sign Up  </Link>
             </li>
         )
         let signInSignOutForm = (
@@ -57,9 +57,17 @@ signOut = () => {
         )
         if(localStorage.getItem('loggedInStudent')){
             dropDownList = (
-                <li className="nav-item ">
-                    <Link className="nav-link" to="/settings">Settings  </Link>
-                </li>
+                <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">BG Logger</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">A1C Calculator</a>
+          </li>
+        </ul>
             )
             signInSignOutForm =(
                 <div  className="form-inline mt-2 mt-md-0">
@@ -68,7 +76,7 @@ signOut = () => {
             )
         }
         return (
-                <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <nav className="navbar navbar-expand-md navbar-dark fixed-top ">
                     <Link className="navbar-brand" to="/">Infusion Tracker</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
