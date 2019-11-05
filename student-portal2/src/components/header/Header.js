@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import  '/Users/Danny/Documents/Capstone/student-portal2/src/navbar-top.css'
+import Settings from '../settings/Settings';
 
 class Header extends Component {
     state = {
@@ -44,9 +45,14 @@ signOut = () => {
 
     render() {
         let dropDownList = (
-            <li className="nav-item mr-auto">
-                <Link className="nav-link active" to="/sign-up">Sign Up  </Link>
-            </li>
+            <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/sign-up">Sign Up <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/about-us">About Us <span class="sr-only">(current)</span></a>
+          </li>
+          </ul>
         )
         let signInSignOutForm = (
             <form onSubmit={this.signInSubmitHandler} className="form-inline mt-2 mt-md-0">
@@ -67,6 +73,12 @@ signOut = () => {
           <li class="nav-item">
             <a class="nav-link disabled" href="#">A1C Calculator</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/settings">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/about-us">About Us</a>
+          </li>
         </ul>
             )
             signInSignOutForm =(
@@ -84,7 +96,6 @@ signOut = () => {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="/about-us">About-us <span className="sr-only">(current)</span></Link>
                             </li>
    
                                      {dropDownList}

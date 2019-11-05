@@ -18,6 +18,7 @@ const AboutUs = (props) => {
                     
                     <p class="lead"><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                     <h7>2019</h7>
+                    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                     </p>
                     
                   </div>

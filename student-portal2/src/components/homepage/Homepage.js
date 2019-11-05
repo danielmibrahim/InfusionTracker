@@ -82,7 +82,8 @@ signOut = () => {
      
 
       return (
-        
+        <div className="site-wrapper">
+
      <div id="myCarousel" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators" data-interval="5000">
             <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
@@ -133,6 +134,9 @@ signOut = () => {
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="sr-only">Next</span>
           </a>
+        </div>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
         </div>
       );
   }

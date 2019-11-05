@@ -91,10 +91,9 @@ class Body extends Component {
 
 	areasSubmitHandler = (event) => {
 		// event.preventDefault();
-
 		if (this.state.selectedArea.savedArea != true) {
 			const email = localStorage.getItem("loggedInStudent");
-			console.log("area ::> ", this.state.selectedArea)
+			console.log("area ::> ", this.state.selectedArea)	
 			axios.post(`http://localhost:8080/sites/add-site/${email}`, {
 				xCoord: this.state.selectedArea.coords[0],
 				yCoord: this.state.selectedArea.coords[1],
@@ -166,6 +165,7 @@ class Body extends Component {
 
 				<div className="imagemap">
 					
+					
 					<ImageMapper src={MaleBody} fillColor={this.state.preFillColor} map={MAP} width={710} height={535}
 						button className="open-modal-btn"
 
@@ -178,6 +178,7 @@ class Body extends Component {
 
 					</ImageMapper>
 					</div>
+					
 				</div>
 
 

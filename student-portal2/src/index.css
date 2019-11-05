@@ -23,7 +23,7 @@ code {
 }
 .btn-outline-success:hover {
   color: #fff;
-  background-color: pink;
+  background-color: green(192, 255, 218);
   border-color: white;
 }
 .container {

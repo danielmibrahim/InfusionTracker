@@ -32,7 +32,7 @@ class Settings extends Component {
                     </div>
                  
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+                    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
 
                 </form>
                 </div>

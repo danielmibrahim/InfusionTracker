@@ -112,6 +112,7 @@ class SignUp extends Component {
                 
                 <button type="submit" className="btn btn-primary">Sign Up</button>
             </form>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             
             </div>
         );
