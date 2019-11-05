@@ -68,7 +68,6 @@ signOut = () => {
             )
         }
         return (
-            <div className="margin-bottom-50px">
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                     <Link className="navbar-brand" to="/">Infusion Tracker</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +86,6 @@ signOut = () => {
                         {signInSignOutForm}
                     </div>
                 </nav>
-            </div>
         );
     }
 }

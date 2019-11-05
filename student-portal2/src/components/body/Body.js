@@ -3,7 +3,7 @@ import ImageMapper from 'react-image-mapper';
 import MaleBody from '/Users/Danny/Documents/Capstone/student-portal2/src/images/MaleBody.jpg';
 import Modal from '../modal/Modal';
 import axios from 'axios';
-import Timer from 'react-compound-timer'
+
 
 
 class Body extends Component {
@@ -101,6 +101,7 @@ class Body extends Component {
 				shape: this.state.selectedArea.shape,
 				fillColor: this.state.selectedArea.fillColor,
 				siteStudent: this.state.loggedInStudent
+
 			})
 				.then(response => {
 
@@ -136,17 +137,7 @@ class Body extends Component {
 
 
 	render() {
-		if (this.state.preFillColor != "green") {
-
-		}
-		else {
-
-
-		}
-
-
-		console.log(this.state)
-
+	
 
 
 		let MAP = {
@@ -168,11 +159,13 @@ class Body extends Component {
 						areasSubmitHandler={this.areasSubmitHandler}
 						removeLastAddedArea={this.removeLastAddedArea}
 						selectedArea={this.state.selectedArea}
-
+					
 					></Modal> : ""
+				
 				}
 
 				<div className="imagemap">
+					
 					<ImageMapper src={MaleBody} fillColor={this.state.preFillColor} map={MAP} width={710} height={535}
 						button className="open-modal-btn"
 
@@ -184,8 +177,8 @@ class Body extends Component {
 
 
 					</ImageMapper>
+					</div>
 				</div>
-			</div>
 
 
 

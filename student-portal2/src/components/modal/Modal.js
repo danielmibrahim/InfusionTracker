@@ -1,89 +1,121 @@
-import React from 'react';
+import React, {Component} from 'react';
+import countdown from 'countdown'
 import './Modal.css';
 
-import Timer  from 'react-compound-timer';
 
+class Modal extends Component {
 
-
-const Modal = (props) => {
-
-    let cancel = (event) => {
-        props.removeLastAddedArea()
+    state = {
+        timer: ""
     }
 
+    componentDidMount(){
+        let initialDate  = new Date(this.props.selectedArea.date)
+        let expireDate = new Date(initialDate)
+        expireDate.setDate(initialDate.getDate()+3);
+        this.setState({timer: countdown(new Date(), expireDate,countdown.DAYS| countdown.HOURS|countdown.MINUTES|countdown.SECONDS).toString()})
 
-    let confirmSite = (event) => {
-        props.beginSiteTracker()
-        props.areasSubmitHandler()
-        props.close()
+        setInterval(
+            () => this.setState({timer: countdown(new Date(), expireDate, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS).toString()}),
+            1000
+        )
+
+       
+            if (expireDate < initialDate){
+                this.props.selectedArea.prefillColor = "red"
+            }
+        
+    }
+
+    cancel = (event) => {
+        this.props.removeLastAddedArea()
+    }
+
+    
+
+    confirmSite = (event) => {
+        this.props.beginSiteTracker()
+        this.props.areasSubmitHandler()
+        this.props.close()
 
     };
+    
+    render(){
+        
+        let modalMessage = (
+            <div></div>
 
-    console.log("Timer props -> ", props.selectedArea.date)
-    let expireDate  = new Date(props.selectedArea.date)
-    expireDate.setDate(expireDate.getDate()+3)
-    console.log("expire date ::> ", expireDate)
-    let expireTime = expireDate.getTime()/1000
-    let initialTime = props.selectedArea? new Date(props.selectedArea.date).getTime()/1000 : 0
-    console.log("Time is ::> ", initialTime)
-    let timer = (
-        <Timer
-            initialTime={initialTime}
-            direction="backward"
-            checkpoints={[
-                {
-                    time:  initialTime - expireTime,
-                    callback: () => console.log('Checkpoint A')
-                }
+        )
+        
+        if (this.props.selectedArea.savedArea == true){
+            modalMessage=(
+                <div>
+                <div className="modal-wrapper"
+                    style={{
+                        transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
+                        opacity: this.props.show ? '1' : '0'
+                    }}>
+                    <div className="modal-header">
+                        <h3>Infusion Tracker</h3>
+                        <span className="close-modal-btn" onClick={this.props.close}>×</span>
+                    </div>
 
-            ]}
-        >
-            {() => (
-                <React.Fragment>
-                    <Timer.Days /> days
-                    <Timer.Hours /> hours
-                    <Timer.Minutes /> minutes
-                    <Timer.Seconds /> seconds
-                </React.Fragment>
-            )}
-        </Timer>
-    )
+                    <div className="modal-body">
+                        <p>This site expires on:</p>
+                    {   
+                        this.state.timer
+                    }
+                    
+                    
+                    </div> 
+                    <div className="modal-footer">
+                    <button className="btn-cancel" onClick={this.props.close}>Close</button>
+                    </div>
+                    </div>
+                </div>
 
-    return (
-        <div>
-            <div className="modal-wrapper"
-                style={{
-                    transform: props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
-                    opacity: props.show ? '1' : '0'
-                }}>
-                <div className="modal-header">
-                    <h3>Infusion Tracker</h3>
-                    <span className="close-modal-btn" onClick={cancel}>×</span>
+            )
+            
+        }
+        else {
+            modalMessage =( 
+                <div>
+                <div className="modal-wrapper"
+                    style={{
+                        transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
+                        opacity: this.props.show ? '1' : '0'
+                    }}>
+                    <div className="modal-header">
+                        <h3>Infusion Tracker</h3>
+                        <span className="close-modal-btn" onClick={this.cancel}>×</span>
+                    </div>
+
+                    <div className="modal-body">
+                        <p>Do you want to confirm this as your current site?</p>
+                    </div> 
+                    <div className="modal-footer">
+                    <button className="btn-cancel" onClick={this.cancel}>Cancel</button>
+                        <button className="btn-continue" onClick={this.confirmSite}>Confirm</button>
+                    </div>
+                    </div>
                 </div>
-                <div className="modal-body">
-                    <p>Time left for this infusion site:</p>
-                        {timer}
-                    {/* {   props.selectedArea && props.selectedArea.saveArea? (
-                                timer 
-                            )
-                        :  ""
-                    } */}
+                       
+                   
+            )
+        }
+
+
+        return (
+            <div>
+            
+                    {modalMessage}
+                
+                    
                 </div>
-                <div className="modal-body">
-                    <p>
-                        {props.children}
-                        Do you want to confirm this as your current infusion site?
-                    </p>
-                </div>
-                <div className="modal-footer">
-                    <button className="btn-cancel" onClick={cancel}>Cancel</button>
-                    <button className="btn-continue" onClick={confirmSite}>Confirm</button>
-                </div>
-            </div>
-        </div>
-    )
+            
+        );
+    }
 
 }
 
 export default Modal;
-

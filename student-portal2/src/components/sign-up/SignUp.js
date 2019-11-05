@@ -38,7 +38,7 @@ class SignUp extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.signUpSubmitHandler} className="container">
+            <form onSubmit={this.signUpSubmitHandler} className="container-center" >
                 <h1>Welcome to Infusion Tracker!</h1>
                 <h2>Sign Up</h2>
                 <h5 className="padding-bottom-15px">It's quick and easy</h5>

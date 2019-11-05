@@ -10,8 +10,7 @@ import Body from '../body/Body';
 import Test from '../test/Test';
 import ThankYou from '../thank-you/ThankYou' 
 import Settings from '../settings/Settings';
-import LogIn from '../../log-in/LogIn';
-
+import LogIn from '../log-in/LogIn';
 class Layout extends Component {
     render() {
          //variable that allows different routes based on user's session
