@@ -10,14 +10,14 @@ import Body from '../body/Body';
 import Test from '../test/Test';
 import ThankYou from '../thank-you/ThankYou' 
 import Settings from '../settings/Settings';
-import LogIn from '../log-in/LogIn';
+import Homepage from '../homepage/Homepage';
 class Layout extends Component {
     render() {
          //variable that allows different routes based on user's session
          let routes = (
             <React.Fragment>
-            <Route exact path = "/" component = {LogIn} />
-            <Route path = "/log-in" component = {LogIn} />
+            <Route exact path = "/" component = {Homepage} />
+            <Route path = "/homepage" component = {Homepage} />
 
             </React.Fragment>
         );
@@ -41,7 +41,7 @@ class Layout extends Component {
                 <Route path ="/test" component={Test}/>
                 <Route path ="/thank-you" component={ThankYou}/>
                 <Route path ="/settings" component={Settings}/>
-                <Route path ="/log-in" component={LogIn}/>
+                <Route path ="/homepage" component={Homepage}/>
 
 
                 
