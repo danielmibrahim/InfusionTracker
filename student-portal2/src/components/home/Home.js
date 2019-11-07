@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link, Route } from 'react-router-dom';
-import StudentLife from './student-life/student-life/StudentLife';
-import Header from '../header/Header';
 import Body from '../body/Body';
 
 class Home extends Component {
@@ -27,6 +24,7 @@ class Home extends Component {
     }
 
     render() {
+        
         return (
             <div className="site-wrapper">
         
@@ -39,6 +37,7 @@ class Home extends Component {
                     <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                     <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
         </div>
+        
         );
     }
 }

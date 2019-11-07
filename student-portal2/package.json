@@ -10,6 +10,7 @@
     "history": "^4.10.1",
     "image-map": "^1.1.7",
     "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.14",
@@ -18,6 +19,9 @@
     "react-fast-compare": "^2.0.4",
     "react-image-mapper": "0.0.15",
     "react-modal": "^3.10.1",
+    "react-native-hr": "^1.1.4",
+    "react-native-hr-component": "^2.0.3",
+    "react-notifications": "^1.4.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "reactjs-popup": "^1.5.0"

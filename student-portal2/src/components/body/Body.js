@@ -5,8 +5,9 @@ import Modal from '../modal/Modal';
 import axios from 'axios';
 
 
-
 class Body extends Component {
+
+	
 	constructor() {
 		super();
 
@@ -46,6 +47,28 @@ class Body extends Component {
 
 
 
+	}
+
+	updateSelectedAreaColor = () => {
+		console.log("Update selected area")
+		let updateArea = this.state.areas.filter(area => {
+			return area.coords[0] == this.selectedArea.coords[0] &&
+				area.coords[1] == this.selectedArea.coords[1]
+		})
+
+
+		
+		updateArea[0].fillColor = "red"
+		console.log("Updated color area ::> ", updateArea)
+		//update the state with this new update area
+		//update database
+
+		let otherAreas =this.state.areas.filter(area => {
+			return area.coords[0] != this.selectedArea.coords[0] &&
+				area.coords[1] != this.selectedArea.coords[1]
+		})
+		// this.setState({ areas: [...otherAreas, updateArea]})
+		
 	}
 
 	openModalHandler = (area) => {
@@ -99,8 +122,8 @@ class Body extends Component {
 				yCoord: this.state.selectedArea.coords[1],
 				shape: this.state.selectedArea.shape,
 				fillColor: this.state.selectedArea.fillColor,
-				siteStudent: this.state.loggedInStudent
-
+				siteStudent: this.state.loggedInStudent,
+				
 			})
 				.then(response => {
 
@@ -108,15 +131,7 @@ class Body extends Component {
 				})
 		}
 
-		// axios.get('http://localhost:8080/findSites')
-		// .then(response => {
-		//     this.setState(
-		//         {
-		//             siteLocations: response.data
-		//         }
-		//     )
-		// })
-
+		
 
 
 	}
@@ -135,8 +150,10 @@ class Body extends Component {
 
 
 
+
 	render() {
 	
+		
 
 
 		let MAP = {
@@ -146,8 +163,11 @@ class Body extends Component {
 
 
 		return (
+		  
 			<div>
 				{this.state.isShowing ? <div onClick={this.closeModalHandler} ></div> : null}
+
+			
 
 				{
 					this.state.selectedArea?
@@ -158,7 +178,8 @@ class Body extends Component {
 						areasSubmitHandler={this.areasSubmitHandler}
 						removeLastAddedArea={this.removeLastAddedArea}
 						selectedArea={this.state.selectedArea}
-					
+						updateSelectedAreaColor={this.updateSelectedAreaColor}
+
 					></Modal> : ""
 				
 				}
@@ -178,10 +199,11 @@ class Body extends Component {
 
 					</ImageMapper>
 					</div>
-					
+	
 				</div>
 
 
+		  
 
 
 

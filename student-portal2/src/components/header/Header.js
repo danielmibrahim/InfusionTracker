@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import  '/Users/Danny/Documents/Capstone/student-portal2/src/navbar-top.css'
-import Settings from '../settings/Settings';
 
 class Header extends Component {
     state = {
@@ -24,6 +23,7 @@ signInSubmitHandler = (event) => {
         localStorage.setItem("loggedInStudent", loginStudent);
         //navigate to home page 
         this.props.history.push('/');
+        window.location.reload(false);
     }).catch(error => {
         alert('Invalid Credentials');    });
 }
@@ -35,6 +35,7 @@ signInChangeHandler = (event) => {
         {
             [key]: value
         }
+        
     )
 }
 signOut = () => {
@@ -50,7 +51,7 @@ signOut = () => {
             <a class="nav-link" href="/sign-up">Sign Up <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/about-us">About Us <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/about-us">About<span class="sr-only">(current)</span></a>
           </li>
           </ul>
         )

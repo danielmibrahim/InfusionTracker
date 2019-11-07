@@ -11,6 +11,7 @@ import Test from '../test/Test';
 import ThankYou from '../thank-you/ThankYou' 
 import Settings from '../settings/Settings';
 import Homepage from '../homepage/Homepage';
+
 class Layout extends Component {
     render() {
          //variable that allows different routes based on user's session
